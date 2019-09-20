@@ -17,7 +17,7 @@ class UserBehavior(TaskSet):
         #     exit(0)
         # print(user_id)
         # self.client.post(url=url, data={"user_id": user_id, "order_no": order_no})
-        self.client.post(url=url)
+        self.client.get(url=url)
 
 
 class WebsiteUser(HttpLocust):
