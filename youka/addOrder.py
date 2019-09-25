@@ -8,7 +8,7 @@ class UserBehavior(TaskSet):
     @task
     def test_register(self):
         # url = "http://10.100.1.190:8888/users/addorder"
-        url = "http://10.100.11.91:8888/users/addorder"
+        url = "http://10.100.11.91:8887/users/addorder"
         try:
             user_id = self.locust.user_id_queue.get()
             order_no = self.locust.order_no_queue.get()
@@ -26,7 +26,7 @@ class WebsiteUser(HttpLocust):
     order_no_queue = queue.Queue()
     user_id = 2369615076710976
     order_no = 290908164200625888
-    for i in range(1000000):
+    for i in range(10000000):
         user_id += 1
         order_no += 1
         user_id_queue.put_nowait(user_id)
