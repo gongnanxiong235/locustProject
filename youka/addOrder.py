@@ -25,8 +25,8 @@ class WebsiteUser(HttpLocust):
     task_set = UserBehavior
     user_id_queue = queue.Queue()
     order_no_queue = queue.Queue()
-    user_id = 3369615076710976
-    order_no = 390908164200625888
+    user_id = 4369615076710976
+    order_no = 490908164200625888
     for i in range(10000000):
         user_id += 1
         order_no += 1
