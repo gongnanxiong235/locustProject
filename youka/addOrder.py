@@ -16,7 +16,7 @@ class UserBehavior(TaskSet):
 class WebsiteUser(HttpLocust):
     host = 'http://debugtalk.com'
     task_set = UserBehavior
-    user_id = 2469615076710976
-    order_no = 260908164200625888
+    user_id = 2569615076710976
+    order_no = 250908164200625888
     min_wait = 0
     max_wait = 0
