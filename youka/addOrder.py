@@ -7,29 +7,16 @@ class UserBehavior(TaskSet):
 
     @task
     def test_register(self):
-        # url = "http://10.100.1.190:8888/users/addorder"
-        url = "http://10.100.11.91:8887/users/addorder"
-        try:
-            user_id = self.locust.user_id_queue.get()
-            order_no = self.locust.order_no_queue.get()
-        except queue.Empty:
-            print('account data run out, test ended.')
-            exit(0)
+        url = "http://10.100.11.91/users/addorder"
         print(user_id)
-        self.client.post(url=url, data={"user_id": user_id, "order_no": order_no})
-
+        self.client.post(url=url, data={"user_id": self.locust.user_id, "order_no": self.locust.order_no})
+        self.locust.user_id+=1
+        self.locust.order_no+=1
 
 class WebsiteUser(HttpLocust):
     host = 'http://debugtalk.com'
     task_set = UserBehavior
-    user_id_queue = queue.Queue()
-    order_no_queue = queue.Queue()
-    user_id = 2369615076710976
-    order_no = 290908164200625888
-    for i in range(10000000):
-        user_id += 1
-        order_no += 1
-        user_id_queue.put_nowait(user_id)
-        order_no_queue.put_nowait(order_no)
+    user_id = 2469615076710976
+    order_no = 260908164200625888
     min_wait = 0
     max_wait = 0
